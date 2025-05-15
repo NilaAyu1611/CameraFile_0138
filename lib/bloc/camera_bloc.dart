@@ -22,10 +22,10 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
     on<ToggleFlash>(_onToggleFlash);
     on<TakePicture>(_onTakePicture);
     on<TapToFocus>(_onTapToFocus);
-    on<PickFromGallery>(_onPickGallery);
+    on<PickImageFromGallery>(_onPickGallery);
     on<OpenCameraAndCapture>(_onOpenCamera);
     on<DeleteImage>(_onDeleteImage);
-    on<ClearSnackBar>(_onClearSnackBar);
+    on<ClearSnackbar>(_onClearSnackBar);
     on<RequestPermissions>(_onRequestPermissions);
     
   }
