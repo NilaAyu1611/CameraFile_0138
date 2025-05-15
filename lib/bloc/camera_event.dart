@@ -27,5 +27,9 @@ final class OpenCameraAndCapture extends CameraEvent {         //buka,tangkap,me
   OpenCameraAndCapture(this.context);
 }
 
+final class DeleteImage extends CameraEvent {}      //hapus gambar yang sudah diambil atau dipilih dari galeri
 
+final class ClearSnackbar extends CameraEvent {}    //ersihkan pesan snackbar dari state agar tidak ditampilkan berulang kali
+
+final class RequestPermissions extends CameraEvent {}   //eminta izin kamera dan penyimpanan kepada pengguna, sebelum menjalankan fitur kamera atau galeri
 
