@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prakkamera/bloc/camera_bloc.dart';
@@ -18,6 +19,15 @@ class _CameraPageState extends State<CameraPage> {
       bloc.add(InitializeCamera());
     }
   }
+
+  IconData _flashIcon(FlashMode mode) {
+    return switch (mode) {
+      FlashMode.auto => Icons.flash_auto,
+      FlashMode.always => Icons.flash_on,
+      _ => Icons.flash_off,
+    };
+  }
+
 
 
 
