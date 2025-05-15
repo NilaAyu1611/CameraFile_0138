@@ -9,5 +9,11 @@ final class SwitchCamera extends CameraEvent {}         // memilih kamere yang d
 
 final class ToggleFlash extends CameraEvent {}          //aktif/nonaktif pencahayaan
 
+final class TakePicture extends CameraEvent {
+  final void Function(File imageFile) onPictureTaken;   //file hasil poto bisa diproses lebih lanjut (simpan/tampilkan)
+  TakePicture(this.onPictureTaken);                     
+}
+
+
 
 
