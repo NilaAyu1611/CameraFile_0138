@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:prakkamera/home_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prakkamera/bloc/camera_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    BlocProvider<CameraBloc>(
+      create: (context) => CameraBloc(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,    
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
