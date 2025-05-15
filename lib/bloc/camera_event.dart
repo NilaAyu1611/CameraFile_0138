@@ -7,3 +7,7 @@ final class InitializeCamera extends CameraEvent {}     //memicu inisialisasi ka
 
 final class SwitchCamera extends CameraEvent {}         // memilih kamere yang digunakan (depan/belakng)
 
+final class ToggleFlash extends CameraEvent {}          //aktif/nonaktif pencahayaan
+
+
+
