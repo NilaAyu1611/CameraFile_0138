@@ -20,5 +20,12 @@ final class TapToFocus extends CameraEvent {          //pritinjau kamre
   TapToFocus(this.position, this.previewSize);
 }
 
+final class PickImageFromGallery extends CameraEvent {}     //pemilihan gambar dr galeri
+
+final class OpenCameraAndCapture extends CameraEvent {         //buka,tangkap,menggunakan kamera  -> diperlukan navigasi
+  final BuildContext context;
+  OpenCameraAndCapture(this.context);
+}
+
 
 
