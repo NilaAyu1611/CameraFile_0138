@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prakkamera/bloc/camera_bloc.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({super.key});
@@ -8,6 +10,17 @@ class CameraPage extends StatefulWidget {
 }
 
 class _CameraPageState extends State<CameraPage> {
+  @override
+  void initState() {                            //inisialisasi kamera saat halaman dimuat, jika belum siap--> agar kamera langsung aktif saat halaman dibuka
+    super.initState();
+    final bloc = context.read<CameraBloc>();
+    if (bloc.state is! CameraReady) {
+      bloc.add(InitializeCamera());
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
