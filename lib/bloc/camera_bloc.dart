@@ -9,9 +9,23 @@ part 'camera_event.dart';
 part 'camera_state.dart';
 
 class CameraBloc extends Bloc<CameraEvent, CameraState> {
+  late final List<CameraDescription> _cameras;
+
+
   CameraBloc() : super(CameraInitial()) {
-    on<CameraEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<InitializeCamera>(_onInit);
+    on<SwitchCamera>(_onSwitch);
+    on<ToggleFlash>(_onToggleFlash);
+    on<TakePicture>(_onTakePicture);
+    on<TapToFocus>(_onTapToFocus);
+    on<PickFromGallery>(_onPickGallery);
+    on<OpenCameraAndCapture>(_onOpenCamera);
+    on<DeleteImage>(_onDeleteImage);
+    on<ClearSnackBar>(_onClearSnackBar);
+    on<RequestPermissions>(_onRequestPermissions);
+    
   }
+
+  
+
 }
