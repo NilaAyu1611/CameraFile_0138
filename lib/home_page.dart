@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:prakkamera/native_camera_page.dart';
 import 'package:prakkamera/storage_helper.dart';
@@ -35,6 +36,16 @@ class _FullPageState extends State<FullPage> {
     }
   }
 
+  Future<void> _pickFromGallery() async {
+    final picker = ImagePicker();                                                     //Memilih gambar dari galeri
+    final picked = await picker.pickImage(source: ImageSource.gallery);
+    if (picked != null) {
+      final saved = await StorageHelper.SaveImage(File(picked.path), 'gallery');
+      setState(() => _imageFile = saved);
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Disalin: ${saved.path}')));           //disalin di folder lokal
+    }
+  }
 
 
   @override
