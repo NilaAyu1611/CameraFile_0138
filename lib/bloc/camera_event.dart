@@ -1,6 +1,6 @@
 part of 'camera_bloc.dart';
 
-@immutable
+
 sealed class CameraEvent {}
 
 final class InitializeCamera extends CameraEvent {}     //memicu inisialisasi kamera --> Digunakan saat halaman kamera dibuka untuk pertama kali agar daftar kamera siap digunakan
@@ -14,6 +14,11 @@ final class TakePicture extends CameraEvent {
   TakePicture(this.onPictureTaken);                     
 }
 
+final class TapToFocus extends CameraEvent {          //pritinjau kamre
+  final Offset position;              
+  final Size previewSize;
+  TapToFocus(this.position, this.previewSize);
+}
 
 
 
